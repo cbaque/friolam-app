@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="data">
+  <div class="wrap_header">
+    <ion-item mode="ios" lines="none">
+     <ion-thumbnail slot="start">
+        <ion-img src="https://mozar38.sg-host.com/upload/user/{{ data.service.client.img }}"></ion-img>
+     </ion-thumbnail>
+
+     <ion-label>
+       <h3>{{ data.service.client.name }}</h3>
+       <p>{{ data.service.service_name }}</p>
+     </ion-label> 
+    </ion-item>
+   
+    <section>
+      <ion-text>
+        Fecha de compromiso: <span>{{ data.service.created_at }}</span>
+      </ion-text>
+
+      <ion-button shape="round" color="dark">En Progeso</ion-button>
+    </section>
+  </div>
+
+  <ion-list class="wrap_box_wall">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          Revisión de maquinaria
+        </ion-card-subtitle>
+        
+        <h4>CODIGO DE ERROR: {{ data.service.code_error }}</h4>
+        <p>{{ data.service.observations }}</p>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-icon name="chevron-forward-outline" (click)="viewDetails(data.service)"></ion-icon>
+        <section (click)="addJob(data.service)">
+          <ion-button color="primary" shape="round">Empezar Con el servicio</ion-button>
+        </section>
+      </ion-card-content>
+    </ion-card>
+  </ion-list> 
+ 
+ </ion-content>
+ 

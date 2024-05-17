@@ -1,0 +1,11 @@
+ 
+ 
+ 
+1. Agregar un pequeño video de animacion al splashScreen
+2. Crear Onborading con slider de bienvenida. Listo
+3. Cambio de vista de inicio de sesion y registro. Listo
+4. Agregar Categoria principal, categorias y subcategorias, 3 niveles
+5. Como futuro incorporar un mapa como uber eats.
+ 
+ 
+ 

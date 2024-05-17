@@ -1,0 +1,78 @@
+.header_grid, .info_user_grid, .descript_grid, .manten_grid, .details_grid, .firma_grid {
+    border: 1px solid rgba(0, 213, 255, 0.545);
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+}
+
+.header_grid {
+    
+    ion-row {
+
+        ion-col {
+
+            p {
+                display: flex;
+                padding: 0;
+                margin: 0;
+
+                ion-label {
+                    position: relative;
+                    top: 4px;
+                    margin-right: 10px;
+                }
+
+                ion-input{ 
+                    border-bottom: 1px solid #e1e1e1;
+                    --padding-bottom:0px;
+                }
+            }
+        }
+    }
+}
+
+.info_user_grid { 
+
+    ion-row {
+
+        ion-col {
+
+            ion-item {
+
+                ion-input {
+                    border-bottom: 1px solid #e1e1e1;
+                    --padding-bottom:0px; 
+                }
+            }
+        }
+    }
+}
+ 
+.btn_submit {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 2003;
+}
+
+ion-content {
+	--background: #ffffff !important;
+}
+
+.error-messages{
+  font-size:  0.7em;
+  color: red;
+  text-align: center;
+}
+
+canvas {
+  border: 1px solid rgb(187, 178, 178);
+}
+ 
+.color-block {
+  height: 40px;
+}
+
+.text-red {
+    color: red;
+}

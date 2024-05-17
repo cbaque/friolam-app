@@ -1,0 +1,73 @@
+<ion-content class="ion-padding" fullscreen>
+
+  <div class="wrap-content">
+    <form #form="ngForm" (ngSubmit)="login(form.value)" style="margin-top: 25%;">
+  
+      <ion-row>
+        <ion-col>
+          <h1>Comencemos</h1>
+          <p style="font-size:12px;">Use el siguiente formulario para comenzar.</p>
+        </ion-col>
+      </ion-row>
+   
+      <ion-row>
+        
+        <ion-col size="12">
+          <ion-label position="stacked">Correo</ion-label>
+          <ion-input type="email"  [(ngModel)]="email" required name="email" placeholder="example@example.com"></ion-input> 
+        </ion-col>
+      </ion-row>
+       
+      <ion-row>
+        <ion-col size="12">
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="password" required name="password" placeholder="*********"></ion-input> 
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-label position="stacked">Confirmar Contraseña</ion-label>
+          <ion-input type="confirm_password" [(ngModel)]="confirm_password" required name="confirm_password" placeholder="*********"></ion-input> 
+        </ion-col>
+      </ion-row>
+      
+      <ion-row style="margin-top:10px;">
+        <ion-col size="6">
+        </ion-col>
+
+        <ion-col size="6">
+          <section class="animate__animated animate__zoomInUp">
+            <ion-button type="submit" color="primary" expand="block" shape="round">
+              <span class="capitalize" style="font-size: 16px;">CREAR CUENTA</span>
+            </ion-button>
+          </section>
+        </ion-col>
+      </ion-row>
+
+      <div class="or_continue ion-text-center">
+        <h6>Usa una plataforma social para continuar</h6>
+        <hr />
+      </div>
+
+      <div class="signups_btns animate__animated animate__zoomInUp">
+        <ion-button class="fb" (click)="fbLogin()">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </ion-button>
+
+        <ion-button class="gl" (click)="googleLoginWeb()">
+          <ion-icon name="logo-google"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="sign_btns ion-text-center">
+        <h6>Ya tengo una cuenta?</h6>
+        &nbsp;&nbsp;&nbsp;
+        <h5 (click)="login()">Iniciar Sesión</h5>
+      </div>
+
+
+    </form>
+  </div>
+  
+  </ion-content>

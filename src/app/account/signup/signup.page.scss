@@ -1,0 +1,92 @@
+
+ion-content {
+    --background: rgb(255,255,255);
+   --background: linear-gradient(207deg, rgba(255,255,255,1) 26%, rgba(84,188,255,1) 61%, rgba(42,171,255,1) 93%); 
+
+    ion-row {
+
+        ion-col {
+            position: relative;
+
+            .icon_input {
+                position: absolute;
+                right: 15px;
+                top: 30px;
+                font-size: 20px;
+            }
+
+            ion-input {
+                border-radius: 25px;
+                background: #fff;
+                --padding-top:15px;
+                --padding-bottom:15px;
+                --padding-right:15px;
+                margin-top: 10px;
+            }
+        
+            ion-label {
+                font-size: 14px;
+                font-weight: 300;
+                position: relative;
+                top: 10px;
+                left: 10px;
+            }
+
+            a {
+                position: relative;
+                top: 15px;
+            }
+        }
+    }
+
+    .or_continue {
+        position: relative;
+        padding-top: 25px;
+        
+        h6 {
+            color: #505050;
+            font-size: 14px;
+        }
+    }
+
+    .sign_btns {
+        position: relative;
+        padding-top: 25px;
+        display: block ruby;
+
+        h6 {
+            color: #505050;
+        }
+    }
+    
+    .signups_btns {
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        
+        ion-button {
+            width: 45px;
+            height: 45px;
+            --border-radius: 2003px;
+            display: inline-block;
+            margin:15px;
+            text-transform:none;
+            text-align: center;
+            
+            ion-icon {
+                position: absolute; 
+                font-size: 16px !important; 
+            }
+     
+          
+            &.fb {
+                --background:radial-gradient(circle at 20.12% -14.09%, #3f5d9f 0, #2f4982 50%, #23396a 100%);;
+            }
+    
+            &.gl {
+                --background:radial-gradient(circle at 20.12% -14.09%, #db4a39  0, #b93c2e  50%, #9a2e22 100%);;
+            }
+        }
+    }
+}

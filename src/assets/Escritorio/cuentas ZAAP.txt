@@ -1,0 +1,60 @@
+SubTotal	$8,600
+Comision 5%	$430
+IVA de com 19%	$81.70
+
+Costo de envio	$11,000
+
+Total		$20,111.70
+
+
+
+
+
+
+https://zapplogistica.com/store/Gas y Hogar SAS
+https://zapplogistica.com/item/Dramamine
+
+
+
+
+Problema #1
+acabamos de crear un pedido ahorita de 900.000 pesos por efectivo pero el limite de compra en efectivo esta en 200.000
+SOLUCIONADO!!
+
+Problema #2
+pero no llego la orden al mensajero a pesar que está elite
+Respueta: el elite actualmente esta configurado para recibir pedidos de hasta $800,000.00 y por lo que se pudo ver los pedidos #57 y #58 son de $935,570 y $1,060,030 respecticamente.
+por ende el sistema no encontrol ningun repartidor hay que modificar los valores del nivel por favor.
+ 
+Problema #3
+tambien hay una imagen en una producto que no deja cambiarla le hemos intentado cambiar pero no deja
+SOLUCIONADO
+
+
+Problema #4
+tambien queremos hace algo con respecto a las imagenes que no se ven bien, en la tienda de ferretería que fue la que tenviamos de ejemplo se ven todos perfecto pero en el resto no
+SOLUCIONADO
+
+Problema #5
+Cambiar el Saldo a favor y Saldo deudor de la app de negocios...
+SOLUCIONADO
+
+Problema #5 - Derivado de confucion.
+Cambiar el cargo de Comision del IVA sobre la comision del servicio en vez de sobre el ticket
+SOLUCIONADO
+
+ACTUALIZACION
+detectar evento en boton de retroceder en la pantalla principal para eliminar busqueda y/o salir de la aplicacion..
+SOLUCIONADO
+
+ACUTALIZACION....
+cambiar altura del modalBx de calificacion
+SOLUCIONADO
+
+Detalle..
+cambiar la imagen del contenedor
+SOLUCIONADO
+
+ACTUALIZACION....
+poner un punto rojo para los pedidos por asignar en la app de negocios.
+SOLUCIONADO

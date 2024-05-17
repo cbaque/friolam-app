@@ -1,0 +1,159 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Trabajos</ion-title>
+  </ion-toolbar>
+
+	<ion-toolbar>
+		<ion-searchbar (ionInput)="getItems($event)" placeholder="Busqueda nombre de servicio"></ion-searchbar>
+	</ion-toolbar>
+
+	<ion-toolbar>
+		<ion-button color="primary" expand="block" (click)="loadData()">Recargar listado</ion-button>
+	</ion-toolbar>
+
+	<ion-toolbar>
+		<ion-segment [(ngModel)]="pet" mode="md">
+			<ion-segment-button value="1">
+				Asignados
+			</ion-segment-button>
+			<!--<ion-segment-button value="2">
+				Sin asignar
+			</ion-segment-button>
+			-->
+			<ion-segment-button value="3">
+				Terminados
+			</ion-segment-button>
+	
+		</ion-segment>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+	<div *ngIf="loading === 2">
+		<div style="text-align: center; margin-top: 20%">
+      <ion-spinner name="circles"></ion-spinner>
+      <h4 >Cargando...</h4>
+    </div>
+	</div>
+
+  <div [ngSwitch]="pet" *ngIf="loading === 1">
+
+    <!-- Caso específico para el valor 1 -->
+    <div *ngSwitchCase="1">
+
+      <!-- Verifica si hay datos y si su longitud es mayor que 0 -->
+      <ng-container *ngIf="data && data.length > 0">
+
+        <!-- Itera sobre cada 'srv' en 'data' -->
+        <ng-container *ngFor="let srv of data">
+
+          <!-- Muestra la tarjeta si el estado del servicio es 0 y el trabajo no está vacío -->
+          <ion-card mode="ios" *ngIf="srv.service.status == 0 && srv.work != ''">
+
+            <!-- Elemento interactivo para ver detalles del trabajo -->
+            <ion-item (click)="viewWork(srv)" lines="none">
+
+              <!-- Muestra la imagen del avatar del cliente -->
+              <ion-avatar slot="start">
+                <img src="https://dash.friolam.cl/upload/user/{{ srv.service.client.img }}" />
+              </ion-avatar>
+
+              <!-- Muestra los detalles del servicio -->
+              <ion-label>
+                <p><strong># Ticket:</strong> {{ srv.service.factura }}</p>
+                <p><strong>Sub cliente:</strong>{{ srv.service.subclient.razon_social }}</p>
+                <p><strong>Nombre fantasia:</strong> {{ srv.service.fantasia }}</p>
+                <p><strong>Servicio:</strong> {{ srv.service.service_name }}</p>
+                <p><strong>Cliente:</strong> {{ srv.service.client.name }}</p>
+                <p><strong>Fecha del servicio:</strong> {{ srv.service.created_at }}</p>
+                <p><strong>Observaciones:</strong> {{srv.service.observations }}</p>
+              </ion-label> 
+
+            </ion-item>
+
+            <!-- Botón para comenzar el servicio con diseño moderno -->
+            <div style="padding: 10px; display: flex; flex-direction: row; align-items: stretch; width: 100%;">
+              <ion-button color="primary" shape="round" expand="full" (click)="viewWork(srv)">Empezar Con el servicio</ion-button>
+            </div>
+
+          </ion-card>
+        </ng-container>
+      </ng-container>
+
+      <!-- Espaciado entre elementos -->
+      <br><br><br>
+    </div>
+    
+    <!-- Nuevos Sin asignar -->
+    <div *ngSwitchCase="2">
+      <ng-container *ngIf="data && data.length > 0">
+        <ng-container *ngFor="let srv of data">
+          <ion-card mode="ios" *ngIf="srv.service.status == 0 && srv.work == ''">
+            <ion-item (click)="viewWork(srv)">
+              <ion-avatar slot="start">
+                <img src="https://mozar38.sg-host.com/upload/user/{{ srv.service.client.img }}" />
+              </ion-avatar>
+              <ion-label>
+                <h4>Sub cliente: {{ srv.service.subclient.razon_social }}</h4>
+                <h4>Nombre fantasia: {{ srv.service.fantasia }}</h4>
+                <h4>Servicio: {{ srv.service.service_name }}</h4>
+                <p>Cliente: {{ srv.service.client.name }} <br />
+                <p>Fecha del servicio: {{ srv.service.created_at }}</p>
+                <p>{{srv.service.observations }}</p>
+              </ion-label> 
+            </ion-item>
+          </ion-card>
+        </ng-container>
+      </ng-container>
+    </div>
+    <!-- Nuevos Sin asignar -->
+
+    <!--Finalizados -->
+    <div *ngSwitchCase="3">
+      <ng-container *ngIf="data && data.length > 0">
+        <ng-container *ngFor="let srv of data">
+          <ion-card mode="ios" *ngIf="srv.service.status == 5 && srv.work != ''">
+            <!-- (click)="viewWork(srv)" -->
+            <ion-item>  
+              <ion-avatar slot="start">
+                <img src="https://dash.friolam.cl/upload/user/{{ srv.service.client.img }}" />
+              </ion-avatar>
+              <ion-label>
+                <h2>{{ srv.service.fantasia }}</h2>
+                <p>Sub cliente: {{ srv.service.subclient.razon_social }}</p>
+                <p>{{ srv.service.created_at }}</p>
+                <p>{{ srv.service.client.name }} <br />
+                <p>{{srv.service.observations }}</p>
+
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-button (click)="whatsappLink(srv.service.whts_phone,srv.service.comm_id)" target="_blank">
+                      <ion-icon name="logo-whatsapp"></ion-icon>
+                      Enviar Whatsapp  
+                    </ion-button>
+
+                  </ion-col>
+                  <ion-col size="6">
+
+                    <ion-button (click)="edit(srv)" color="medium" size="small" class="ion-padding-start">
+                      <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+                      Editar
+                    </ion-button>
+
+                  </ion-col>
+                </ion-row>
+
+              </ion-label> 
+            </ion-item>
+          </ion-card>
+        </ng-container>
+      </ng-container>
+    </div>
+
+
+    <!--Finalizados -->
+  </div>
+
+
+</ion-content>

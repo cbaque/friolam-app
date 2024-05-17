@@ -1,0 +1,40 @@
+ion-tabs{
+
+	ion-fab {
+		margin-bottom: 10px;
+
+		ion-fab-button {
+			--box-shadow: none;
+		}
+	}
+
+	ion-tab-bar {
+		--border: 0;
+		--background: transparent;
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		
+        ion-tab-button {
+			--background: var(--ion-color-light);
+		}
+		
+        svg {    
+			width: 72px;
+			margin-top: 19px;
+			path{
+				fill:  var(--ion-color-light);
+			}		
+		}
+	}
+} 

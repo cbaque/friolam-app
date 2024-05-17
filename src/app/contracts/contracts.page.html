@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>FRIOLAM</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list class="wrap_titles">
+    <h5>Kilometrajes</h5>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Kilometraje Inicial</ion-card-title>
+      <ion-card-subtitle>Ingrese el Kilometraje que indica la camioneta antes de empezar su turno</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Kilometraje inicial</ion-label>
+        <ion-input type="number" pattern="[0-9]*" max="1000000" [(ngModel)]="kmInicial"></ion-input>
+      </ion-item>
+      <img [src]="fotoKmInicial" *ngIf="fotoKmInicial" />
+      <ion-button expand="block" (click)="guardarKilometraje('inicial')">Guardar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Kilometraje final</ion-card-title>
+      <ion-card-subtitle>Ingrese el Kilometraje que indica la camioneta al finalizar su turno</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Kilometraje final</ion-label>
+        <ion-input type="number" pattern="[0-9]*" max="1000000" [(ngModel)]="kmFinal"></ion-input>
+      </ion-item>
+      <img [src]="fotoKmFinal" *ngIf="fotoKmFinal" />
+      <ion-button expand="block" (click)="guardarKilometraje('final')">Guardar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Diferencia de Kilometraje</ion-card-title>
+      <ion-card-subtitle>Ingrese la diferencia de Kilometraje entre el Kilometraje inicial y el Kilometraje final</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Diferencia de Kilometraje</ion-label>
+        <ion-input type="number" pattern="[0-9]*" max="1000000" [(ngModel)]="diferenciaKm"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="enviarDiferenciaKm()">Enviar</ion-button>
+    </ion-card-content>
+  </ion-card>
+	<br><br><br>
+</ion-content>

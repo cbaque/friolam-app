@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border" collapse="fade">
+  <ion-toolbar>
+    <ion-title>Firma</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-fab vertical="top" horizontal="end" slot="fixed">
+		<ion-fab-button color="dark" (click)="closeModal(false)">
+			<ion-icon name="close"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+	
+	<canvas style="position: fixed;" #imageCanvas (mousedown)="startDrawing($event)" (touchstart)="startDrawing($event)"
+	(touchmove)="moved($event)" (mousemove)="moved($event)"
+	(mouseup)="endDrawing()" (touchend)="endDrawing()"></canvas>
+
+</ion-content>
+
+<ion-footer collapse="fade" class="ion-no-border" style="background-color: #ffffff;">
+  <ion-toolbar >
+  <ion-grid >
+    <ion-row>
+      <ion-col size="6">
+        <ion-button  expand="full" (click)="clear()">
+            <ion-icon slot="start" ></ion-icon>
+                Limpiar
+          </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button  expand="full" (click)="exportCanvasImage()" ><!--(click)="exportCanvasImage()"-->
+            <ion-icon slot="start"></ion-icon>
+                Guardar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+

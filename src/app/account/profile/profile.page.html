@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Mi Perfíl</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="wrap_header">
+   <ion-item mode="ios" lines="none">
+     <ion-thumbnail slot="start" *ngIf="data">
+        <ion-img *ngIf="role == 'user'" src="https://dash.friolam.cl/upload/workers/{{data.pic}}"></ion-img>
+        <ion-img *ngIf="role == 'logo'" src="https://dash.friolam.cl/upload/admin/{{data.logo}}"></ion-img>
+     </ion-thumbnail>
+
+     <ion-label>
+       <h3 *ngIf="!data"><ion-skeleton-text animated style="width: 30%;--background:#fff;"></ion-skeleton-text></h3>
+       <p *ngIf="!data"><ion-skeleton-text  animated style="width: 70%;--background:#fff;"></ion-skeleton-text></p>
+       
+       <h3 *ngIf="data">Bienvenido(a)</h3>
+       <p *ngIf="data && role == 'user'">{{data.name}} {{data.last_name}}</p>
+       <p *ngIf="data && role == 'admin'">{{ data.name }}</p>
+     </ion-label> 
+     <ion-icon name="power-outline" (click)="logout()"></ion-icon>
+   </ion-item>
+  </div>
+
+   <ion-list class="wrap_box_wall">
+    
+    <h6>Configuración de la cuenta</h6>
+
+    <div class="wrap_wallets">
+      <span class="title" *ngIf="!data"><ion-skeleton-text animated style="width: 60%;--background:#fff;"></ion-skeleton-text></span>
+      <span class="bal" *ngIf="!data"><ion-skeleton-text animated style="width: 40%;--background:#fff;"></ion-skeleton-text></span>
+      
+      <span class="title" *ngIf="data">Modificar Contraseña</span> 
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </div> 
+
+    <div class="wrap_wallets">
+      <span class="title" *ngIf="!data"><ion-skeleton-text animated style="width: 60%;--background:#fff;"></ion-skeleton-text></span>
+      <span class="bal" *ngIf="!data"><ion-skeleton-text animated style="width: 40%;--background:#fff;"></ion-skeleton-text></span>
+      
+      <span class="title" *ngIf="data">Editar perfil</span> 
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </div> 
+  </ion-list> 
+ 
+ </ion-content>
+ 

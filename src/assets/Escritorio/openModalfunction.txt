@@ -1,0 +1,52 @@
+ const modal = await this.modalController.create({
+      component: SetaddressPage,
+      animated:true,
+      mode:'ios',
+      cssClass: 'my-custom-modal-css',
+      backdropDismiss:false,
+      breakpoints:[0, 0.5, 1],
+      initialBreakpoint: 1,
+      componentProps: {
+        'address_origin': this.address
+      }
+    });
+
+    modal.onDidDismiss().then(data=>{
+     
+      if (data.data && data.data.data == true) {
+        let routes = {
+          'origin' : data.data.address_origin,
+          'destin' : data.data.address_destin
+        }; 
+
+        this.address_dest = data.data.address_destin;
+        this.atc_end.input = this.address_dest.slice(0,27)+"...";  
+        // Obtenemos las coordenadas del punto inicial
+        this.server.GeocodeFromAddressMapBox(encodeURIComponent(routes.origin),this.lat,this.lng).subscribe((coords:any) => {
+          this.lat_orig = coords.features[0].geometry.coordinates[1];
+          this.lng_orig = coords.features[0].geometry.coordinates[0];
+          // Verificamos servicio en zona
+          this.ChkZone(this.lat_orig,this.lng_orig, (req) => {
+            if (req) {  
+              // Obtenemos las coordenadas del punto destino
+            this.server.GeocodeFromAddressMapBox(encodeURIComponent(routes.destin),this.lat,this.lng).subscribe((coords_dest:any) => {
+              this.lat_dest = coords_dest.features[0].geometry.coordinates[1];
+              this.lng_dest = coords_dest.features[0].geometry.coordinates[0];  
+              // Verificamos servicio en zona
+              this.ChkZone(this.lat_dest,this.lng_dest, (req) => {
+                if (req) { 
+                  this.ViewCostShipCommanded();
+                }else {
+                  this.presentToast("Oops!! El servicio en la zona de destino no esta disponible.","danger");
+                }
+              }); 
+            });
+            }else {
+              this.presentToast("Oops!! El servicio en la zona de origen no esta disponible.","danger");
+            }
+          });  
+        });
+        
+      }
+    })
+    return await modal.present();

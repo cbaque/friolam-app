@@ -1,0 +1,22 @@
+Requiere que se conecte via API para obtener todos los productos
+
+API para obtener productos.
+url del producto - Deeplink
+fotografia
+descripcion
+precio
+status
+
+Eventos
+Ver un producto
+agregar al carrito
+iniciar el proceso de compra
+comprar
+Agregar a favoritos
+Rated - Calificacion de compra
+Busqueda
+
+tener una landing page para que usuarios dejen sus datos personales.
+otra para reprtatidores.
+otra para negocios.
+

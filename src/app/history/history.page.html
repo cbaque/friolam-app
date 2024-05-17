@@ -1,0 +1,265 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Historial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-segment [(ngModel)]="pet" mode="md">
+    <ion-segment-button value="1" mode="md">
+        Nuevos
+        <ion-badge color="danger" *ngIf="newOrdersCount > 0" style="position:absolute;top:8px;right:10px;font-size:11px;">{{newOrdersCount}}</ion-badge>
+    </ion-segment-button>
+    <ion-segment-button value="2" mode="md">
+        En Proceso
+        <ion-badge color="danger" *ngIf="ruteOrderCount > 0" style="position:absolute;top:8px;right:10px;font-size:11px;">{{ruteOrderCount}}</ion-badge>
+    </ion-segment-button>
+</ion-segment>
+
+<div class="orders" [ngSwitch]="pet">
+    <div class="wrap_orders" *ngSwitchCase="1">
+        <ng-container> 
+          <ion-card mode="ios" class="order_view">
+            <ion-card-content style="box-shadow: 2px 10px 51px -35px rgba(0,0,0,0.75);">
+              <ion-row>
+                <ion-col class="info_date" size="12">
+                    <h2><ion-icon name="rocket-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon> Servicio #654</h2>
+                    <span><ion-icon name="time-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon>&nbsp; 25/01/2023 | 01:18 a.m.</span>
+                </ion-col>
+
+                <!-- status & Costs -->
+                <ion-col size="12">
+                  <b><ion-icon name="ribbon-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon> Cod Local:</b> 
+                  <ion-label color="primary">3200086504</ion-label> 
+                </ion-col> 
+                <!-- status & Costs -->
+              </ion-row>
+            </ion-card-content>
+
+            <ion-card-content>
+              <ion-row > 
+                  <!-- Start -->
+                  <ion-col size="12" style="padding:15px 0;"> 
+                      <ion-col size="6">
+                        <b>Fono:</b> 
+                        <ion-label color="success">
+                          93617285
+                        </ion-label>
+                      </ion-col>
+
+                      <ion-col size="6">
+                        <span style="float:right">
+                          <b>Rut:</b> 
+                          <ion-label>
+                            8686883-0
+                          </ion-label>
+                        </span>
+                      </ion-col>
+                  </ion-col>
+                  <!-- end -->
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Cliente</b><br />
+                      <ion-label>
+                        Villalobos espejo adela juana
+                      </ion-label>
+                  </ion-col> 
+                  <!-- end -->
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Local:</b>
+                      <br />
+                      <ion-label>
+                        Villalobos espejo adela juana
+                      </ion-label>
+                  </ion-col>
+                  <!-- end -->
+                  
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Dirección:</b><br />
+                      <ion-label color="primary">Pintor Gustavo Carrasco 3891</ion-label>  
+                  </ion-col> 
+                  <!-- end --> 
+
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Comuna:</b><br />
+                      <ion-label color="success">
+                        La serena
+                      </ion-label> 
+                  </ion-col>
+                  <!-- end --> 
+              </ion-row> 
+            </ion-card-content> 
+          </ion-card>
+
+          <ion-card mode="ios" class="order_view">
+            <ion-card-content style="box-shadow: 2px 10px 51px -35px rgba(0,0,0,0.75);">
+              <ion-row>
+                <ion-col class="info_date" size="12">
+                    <h2><ion-icon name="rocket-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon> Servicio #654</h2>
+                    <span><ion-icon name="time-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon>&nbsp; 25/01/2023 | 01:18 a.m.</span>
+                </ion-col>
+
+                <!-- status & Costs -->
+                <ion-col size="12">
+                  <b><ion-icon name="ribbon-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon> Cod Local:</b> 
+                  <ion-label color="primary">3200086504</ion-label> 
+                </ion-col> 
+                <!-- status & Costs -->
+              </ion-row>
+            </ion-card-content>
+
+            <ion-card-content>
+              <ion-row > 
+                  <!-- Start -->
+                  <ion-col size="12" style="padding:15px 0;"> 
+                      <ion-col size="6">
+                        <b>Fono:</b> 
+                        <ion-label color="success">
+                          93617285
+                        </ion-label>
+                      </ion-col>
+
+                      <ion-col size="6">
+                        <span style="float:right">
+                          <b>Rut:</b> 
+                          <ion-label>
+                            8686883-0
+                          </ion-label>
+                        </span>
+                      </ion-col>
+                  </ion-col>
+                  <!-- end -->
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Cliente</b><br />
+                      <ion-label>
+                        Villalobos espejo adela juana
+                      </ion-label>
+                  </ion-col> 
+                  <!-- end -->
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Local:</b>
+                      <br />
+                      <ion-label>
+                        Villalobos espejo adela juana
+                      </ion-label>
+                  </ion-col>
+                  <!-- end -->
+                  
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Dirección:</b><br />
+                      <ion-label color="primary">Pintor Gustavo Carrasco 3891</ion-label>  
+                  </ion-col> 
+                  <!-- end --> 
+
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Comuna:</b><br />
+                      <ion-label color="success">
+                        La serena
+                      </ion-label> 
+                  </ion-col>
+                  <!-- end --> 
+              </ion-row> 
+            </ion-card-content> 
+          </ion-card>
+
+          <ion-card mode="ios" class="order_view">
+            <ion-card-content style="box-shadow: 2px 10px 51px -35px rgba(0,0,0,0.75);">
+              <ion-row>
+                <ion-col class="info_date" size="12">
+                    <h2><ion-icon name="rocket-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon> Servicio #654</h2>
+                    <span><ion-icon name="time-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon>&nbsp; 25/01/2023 | 01:18 a.m.</span>
+                </ion-col>
+
+                <!-- status & Costs -->
+                <ion-col size="12">
+                  <b><ion-icon name="ribbon-outline" style="position: relative;top: 4px;font-size: 16px;"></ion-icon> Cod Local:</b> 
+                  <ion-label color="primary">3200086504</ion-label> 
+                </ion-col> 
+                <!-- status & Costs -->
+              </ion-row>
+            </ion-card-content>
+
+            <ion-card-content>
+              <ion-row > 
+                  <!-- Start -->
+                  <ion-col size="12" style="padding:15px 0;"> 
+                      <ion-col size="6">
+                        <b>Fono:</b> 
+                        <ion-label color="success">
+                          93617285
+                        </ion-label>
+                      </ion-col>
+
+                      <ion-col size="6">
+                        <span style="float:right">
+                          <b>Rut:</b> 
+                          <ion-label>
+                            8686883-0
+                          </ion-label>
+                        </span>
+                      </ion-col>
+                  </ion-col>
+                  <!-- end -->
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Cliente</b><br />
+                      <ion-label>
+                        Villalobos espejo adela juana
+                      </ion-label>
+                  </ion-col> 
+                  <!-- end -->
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Local:</b>
+                      <br />
+                      <ion-label>
+                        Villalobos espejo adela juana
+                      </ion-label>
+                  </ion-col>
+                  <!-- end -->
+                  
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Dirección:</b><br />
+                      <ion-label color="primary">Pintor Gustavo Carrasco 3891</ion-label>  
+                  </ion-col> 
+                  <!-- end --> 
+
+                  <!-- start -->
+                  <ion-col size="12">
+                      <b>Comuna:</b><br />
+                      <ion-label color="success">
+                        La serena
+                      </ion-label> 
+                  </ion-col>
+                  <!-- end --> 
+              </ion-row> 
+            </ion-card-content> 
+          </ion-card>
+        </ng-container>
+ 
+    </div>
+
+    <div class="wrap_orders" *ngSwitchCase="2">
+ 
+        <!-- Sin Viajes -->
+        <ion-card mode="ios" class="order_view_none ion-text-center">
+            <ion-card-header>
+                <img src="assets/status_send.gif" alt="sin pedidos en curso" style="width: 30%;margin:0 auto;">
+                <h5 style="color:#a3a3a3;">No tienes servicios en curso...</h5>
+
+                <ion-button size="small" expand="block" style="margin-top: 15px;text-transform:capitalize;" (click)="update()">Actualizar</ion-button>
+            </ion-card-header>
+        </ion-card>
+        <!--  Sin Viajes -->
+    </div>
+</div>
+</ion-content>

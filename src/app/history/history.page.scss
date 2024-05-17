@@ -1,0 +1,79 @@
+.orders {
+    margin-bottom: 120px;
+  
+    .wrap_orders {
+  
+      .order_view {
+        background-color: #fff;
+        border-radius: 25px;
+        border: 1px solid rgba(0, 213, 255, 0.545);
+       
+  
+        ion-card-content {
+  
+          ion-row {
+            ion-col.info_date {
+              display: flex;
+              justify-content: space-between;
+   
+              h2 {
+                font-weight: 700;
+              }
+  
+              span { 
+                font-size: 12px;
+              }
+            }
+  
+            ion-col.active {
+              border: 1px solid #e1e1e1;
+              border-radius: 15px;
+              -webkit-box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+              -moz-box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+              box-shadow: 0px 4px 14px -9px rgba(0,0,0,0.75);
+            }
+          }
+  
+  
+          ion-row.btns {
+            margin-top: 8px;
+  
+            ion-col {
+              
+              ion-button {
+                text-transform: capitalize;
+                font-size: 13px;
+                width: 100%;
+                height: 35px;
+                --border-radius: 10px;
+              }
+  
+            }
+          }
+  
+          ion-row.btns_rute {
+            margin-top: 8px;
+  
+            ion-col {
+              
+              ion-button {
+                text-transform: capitalize;
+                font-size: 13px;
+                width: 100%;
+                height: 35px;
+                --border-radius: 10px;
+              }
+   
+            }
+          }
+        }
+      }
+  
+      .order_view_none {
+        box-shadow: none;
+        border:none;
+      }
+    }
+   
+  }
+  

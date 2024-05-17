@@ -1,0 +1,185 @@
+<ion-header class="ion-no-border" collapse="fade">
+  <ion-toolbar>
+    <ion-title slot="start">Agregar Mantenimiento</ion-title>
+		<ion-buttons slot="end" (click)="closeModal()">
+			<ion-button color="danger" fill="outline" expand="block" shape="round" size="small">
+				Cancelar
+			</ion-button>
+		</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #form="ngForm" [formGroup]="authForm">
+   
+   
+    <ion-accordion-group [multiple]="true" [value]="['informacion_equipo']">
+
+      <!-- Informacion del equipo -->
+     <ion-accordion value="informacion_equipo">
+       <ion-item slot="header" color="light">
+         <ion-label>Informaci&oacute;n del Equipo</ion-label>
+       </ion-item>
+       <div class="ion-padding" slot="content">
+         <ion-item-group>
+           <ion-item>
+             <ion-label># de Maquina:</ion-label>
+             <ion-input formControlName="name_machine"></ion-input>
+           </ion-item>
+   
+           <ion-item>
+             <ion-label>Modelo:</ion-label>
+             <ion-input formControlName="model"></ion-input>
+           </ion-item>
+           <div class="error-messages">
+             <ng-container *ngFor="let error of errorMessages.model">
+               <div class="error-message" *ngIf="authForm.get('model')?.hasError(error.type) && (authForm.get('model')?.dirty || authForm.get('model')?.touched)">
+                 {{error.message}}
+               </div>
+             </ng-container>
+           </div>
+     
+           <ion-item>
+             <ion-label>Serie:</ion-label>
+             <ion-input formControlName="serie"></ion-input>
+           </ion-item>
+           <div class="error-messages">
+             <ng-container *ngFor="let error of errorMessages.serie">
+               <div class="error-message danger" *ngIf="authForm.get('serie')?.hasError(error.type) && (authForm.get('serie')?.dirty || authForm.get('serie')?.touched)">
+                 {{error.message}}
+               </div>
+             </ng-container>
+           </div>
+     
+           <ion-item>
+             <ion-label>Activo:</ion-label>
+             <ion-input formControlName="acivo"></ion-input>
+           </ion-item>
+           <div class="error-messages">
+             <ng-container *ngFor="let error of errorMessages.acivo">
+               <div class="error-message" *ngIf="authForm.get('acivo')?.hasError(error.type) && (authForm.get('acivo')?.dirty || authForm.get('acivo')?.touched)">
+                 {{error.message}}
+               </div>
+             </ng-container>
+           </div>
+         </ion-item-group>
+       </div>
+     </ion-accordion>
+
+     <!-- Descripcion del problema-->
+     <ion-accordion value="falla">
+       <ion-item slot="header" color="light">
+         <ion-label>Descripción de la falla o problema.</ion-label>
+       </ion-item>
+       <div class="ion-padding" slot="content">
+         <ion-item> 
+           <ion-textarea name="fixDetail" placeholder="Ingresa una descripción" formControlName="fixDetail"></ion-textarea>
+         </ion-item>
+       </div>
+     </ion-accordion>
+
+     <!-- POSTMIX -->
+     <ion-accordion value="postMix">
+       <ion-item slot="header" color="light">
+         <ion-label>POSTMIX</ion-label>
+         <ion-badge slot="end">{{arraypostmix.length}}</ion-badge>
+       </ion-item>
+       <div class="ion-padding" slot="content">
+
+         <div *ngFor="let subData of postMix">
+           <ion-item lines="none">
+             <ion-label>{{ subData.description }}:</ion-label>
+             <ion-checkbox 
+               slot="end" 
+               mode="md"  
+               [ngModelOptions]=" {standalone: true}" 
+               [(ngModel)]="subData.isChecked" 
+               (ionChange)="onChangePostMix(subData, $event)"></ion-checkbox>
+           </ion-item>
+         </div>
+       </div>
+     </ion-accordion>
+
+     <!-- Descripcion del problema-->
+     <ion-accordion value="observaciones">
+       <ion-item slot="header" color="light">
+         <ion-label>Observaciones:</ion-label>
+       </ion-item>
+       <div class="ion-padding" slot="content">
+
+         <ion-item > 
+           <ion-textarea name="description" placeholder="Ingresa una descripción" formControlName="problemDescription"></ion-textarea>
+         </ion-item>
+         <div class="error-messages">
+           <ng-container *ngFor="let error of errorMessages?.problemDescription">
+             <div class="error-message" *ngIf="authForm.get('problemDescription')?.hasError(error.type) && (authForm.get('problemDescription')?.dirty || authForm.get('problemDescription')?.touched)">
+               {{error.message}}
+             </div>
+           </ng-container>
+         </div>
+
+       </div>
+     </ion-accordion>
+
+     <!-- Manitence #1 -->
+     <ion-accordion value="maintence_1">
+       <ion-item slot="header" color="light">
+         <ion-label>Mantenimiento #1:</ion-label>
+         <ion-badge slot="end">{{arrayListPushMaintenceOne.length}}</ion-badge>
+       </ion-item>
+       <div class="ion-padding" slot="content">
+
+         <div *ngFor="let subData of maintanceOne">
+           <ion-item lines="none">
+             <ion-label>{{ subData.description }}:</ion-label>
+             <ion-checkbox 
+               slot="end" 
+               mode="md"  
+               [ngModelOptions]=" {standalone: true}" 
+               [(ngModel)]="subData.isChecked" 
+               (ionChange)="onChange(subData, $event)"></ion-checkbox>
+           </ion-item>
+         </div>
+
+       </div>
+     </ion-accordion>
+
+     <!-- Manitence #2 -->
+     <ion-accordion value="maintence_2">
+       <ion-item slot="header" color="light">
+         <ion-label>Mantenimiento #2:</ion-label>
+         <ion-badge slot="end">{{arrayListPushMaintenceTwo.length}}</ion-badge>
+       </ion-item>
+       <div class="ion-padding" slot="content">
+
+         <div *ngFor="let subData of maintanceTwo; let last = last">
+           <ion-item lines="none" [ngStyle]="{'background-color': last ? 'red' : 'transparent'}">
+           
+           <ion-label>{{ subData.description }}:</ion-label>
+           <ion-checkbox 
+             slot="end" 
+             mode="md"  
+             [ngModelOptions]=" {standalone: true}" 
+             [(ngModel)]="subData.isChecked" 
+             (ionChange)="onChange2(subData, $event)"></ion-checkbox>
+           </ion-item>
+         </div>
+
+       </div>
+     </ion-accordion>
+
+   </ion-accordion-group>
+
+  </form>
+
+
+</ion-content>
+
+<ion-footer collapse="fade" class="ion-no-border" style="background-color: #ffffff;">
+  <ion-toolbar>
+		<ion-button type="submit" size="block" color="success" (click)="addMachine()">
+			Agregar Mantenimiento
+		</ion-button>
+  </ion-toolbar>
+</ion-footer>

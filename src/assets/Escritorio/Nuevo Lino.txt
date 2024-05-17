@@ -1,0 +1,14 @@
+Requisitos:
+
+Kool
+
+Trasmision de pagos entre usuarios de la aplicacion y CODI.
+Pago de servicios con STP venta de recargas, venta de servicios. 
+se enlistarian negocios afiliados y que tienen la aplicacion. 
+
+esa compra debera generar un folio de la compra protegida.
+
+se subiran negocios mas sencillo.
+
+pin de oxxo
+buzz

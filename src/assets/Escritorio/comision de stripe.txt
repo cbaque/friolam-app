@@ -1,0 +1,23 @@
+Costo del envio $0
+Costo del producto $400
+
+Comision de la plataforma del 3.6% = 14.4 que redondea a 14
+total - $414
+
+
+el 8.11 sale de la sumatoria de 
+la comision de la plataforma = $0.04
+comision de stripe 3.6% + 3 MXN = $6.96
+Impuestos = $1.11
+
+En total dan = $8.11
+
+
+lo $1.11 salen de la comision de stripe
+Comision 6.96 * 16% = $1.11
+
+
+
+    Impuesto:MXN 2.86
+    Comisiones de procesamiento de Stripe:MXN 17.90
+    Comisiones de la plataforma:MXN 15.00

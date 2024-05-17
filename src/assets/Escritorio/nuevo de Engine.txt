@@ -1,0 +1,13 @@
+que el banner 
+
+ver todos los eventos que se vea como un calendario
+
+Se quita la seccion de divisiones y se agrega la imagen tal cual.
+
+cambiar eventos por nivel.
+
+en beneficios poner la imagen del lado izquierdo y lo demas borrarlo
+
+
+/********************************************/
+que se registren bloqueados hasta que el admin le de el codigo.

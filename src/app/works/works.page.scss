@@ -1,0 +1,55 @@
+
+ion-header {
+
+  ion-toolbar {
+
+    ion-title {
+      font-weight: 500;
+      font-size: 24px;
+    }
+
+    ion-buttons {
+ 
+      ion-icon {
+        font-size: 24px;
+        margin: 0 25px;
+      }
+    }
+  }
+}
+
+
+ion-content {
+
+   ion-card {
+
+    ion-item {
+
+      ion-label {
+
+        span {
+          color: blue;
+          font-size: 12px;
+        }
+      }
+    }
+   }
+}
+
+.buttons {
+	display: flex;
+	@media (max-width: 350px) {
+		flex-direction: column;
+	}
+}
+  
+
+.whatsapp-button {
+  float: right; /* Posiciona el botón a la derecha */
+  background-color: #25D366; /* Color de fondo de WhatsApp */
+  color: white; /* Color del texto */
+}
+
+ion-icon {
+  margin-right: 5px; /* Espacio entre el icono y el texto */
+}

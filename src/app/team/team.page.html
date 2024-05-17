@@ -1,0 +1,33 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>Inventario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Item</ion-label>
+      <ion-input [(ngModel)]="itemName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Cantidad</ion-label>
+      <ion-input type="number" [(ngModel)]="itemQuantity"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="agregarItem()">Agregar Item</ion-button>
+
+  <ion-list *ngFor="let day of dailyData">
+    <ion-item-divider color="primary">
+      {{ day.date }}
+    </ion-item-divider>
+    <ion-item *ngFor="let item of day.data">
+      <ion-label>Item: {{ item.name }}</ion-label>
+      <ion-label>Cantidad: {{ item.quantity }}</ion-label>
+      <ion-button slot="end" (click)="modificarCantidad(item)">Modificar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="descargarTexto()">Descargar</ion-button>
+</ion-content>

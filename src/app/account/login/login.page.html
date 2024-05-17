@@ -1,0 +1,71 @@
+<ion-content class="ion-padding" fullscreen>
+  <div class="wrap-content">
+    <form #form="ngForm" (ngSubmit)="login(form.value)" style="margin-top: 25%;">
+      <ion-row>
+        <ion-col>
+          <h1>Bienvenido</h1>
+        </ion-col>
+      </ion-row>
+   
+      <ion-row>
+        <ion-col size="12">
+					<ion-item fill="outline">
+						<ion-label position="stacked">Correo</ion-label>
+          	<ion-input type="email" [(ngModel)]="email" required name="email" placeholder="example@example.com"></ion-input> 
+					</ion-item>
+        </ion-col>
+      </ion-row>
+       
+      <ion-row>
+        <ion-col size="12">
+					<ion-item fill="outline">
+						<ion-label position="stacked">Password</ion-label>
+          	<ion-input type="password" [(ngModel)]="password"  required name="password" placeholder="*********"></ion-input> 
+					</ion-item>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row style="margin-top:10px;">
+        <!-- 
+					Not use this block code 
+					<ion-col size="7">
+						<a>¿Olvido su contraseña?</a>
+					</ion-col>
+				-->
+
+        <ion-col size="12">
+          <section>
+            <ion-button type="submit" color="primary" expand="block" >
+              <span class="capitalize" style="font-size: 16px;">INGRESAR</span>
+            </ion-button>
+          </section>
+        </ion-col>
+      </ion-row>
+
+			<!--
+				Not use this block code 
+				<div class="or_continue ion-text-center">
+					<h6>Usa una plataforma social para continuar</h6>
+					<hr />
+				</div>
+
+				Not use this block code 
+				<div class="signups_btns animate__animated animate__zoomInUp">
+					<ion-button class="fb" (click)="fbLogin()">
+							<ion-icon name="logo-facebook"></ion-icon>
+					</ion-button>
+
+					<ion-button class="gl" (click)="googleLoginWeb()">
+						<ion-icon name="logo-google"></ion-icon>
+					</ion-button>
+				</div>
+
+				<div class="sign_btns ion-text-center">
+					<h6>No tienes una cuenta?</h6>
+					&nbsp;&nbsp;&nbsp;
+					<h5 (click)="createAccount()">Crear Cuenta</h5>
+				</div>
+			-->
+    </form>
+  </div>  
+</ion-content>

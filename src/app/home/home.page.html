@@ -1,0 +1,124 @@
+<ion-header class="ion-no-border" >
+	<ion-toolbar>
+		<ion-title>Bienvenido</ion-title>
+	</ion-toolbar>
+	<ion-toolbar class="toolbar-padding">
+		<ion-label>A continuación se muestra un resumen de la actividad de sus equipos.</ion-label>
+	</ion-toolbar>
+
+</ion-header>
+<ion-content fullscreen > 
+  <ion-list class="wraps_init">
+     
+    <swiper [pagination]="true" class="my-swiper">
+      <ng-template swiperSlide>
+        <ion-item lines="none" (click)="viewRoute('works')">
+					<div class="main-slider">
+						<p>Deslice para ver el siguiente apartado.</p>
+						<div class="avatar-container">
+							<ion-avatar slot="start">
+								<ion-icon name="people-outline"></ion-icon>
+							</ion-avatar>
+							<ion-label>
+								<h3>tareas asignadas</h3>
+                <h1 *ngIf="!data">
+                  <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+                </h1>
+								<h1 *ngIf="data">{{data.servicesAssign}}</h1>
+							</ion-label>
+						</div>
+					</div>
+        </ion-item>
+      </ng-template>
+      <ng-template swiperSlide>
+				<ion-item lines="none">
+					<div class="main-slider">
+						<p>Deslice para ver el siguiente apartado.</p>
+						<div class="avatar-container">
+							<ion-avatar slot="start">
+								<ion-icon name="build-outline"></ion-icon>
+							</ion-avatar>
+							<ion-label>
+								<h3>tareas completadas</h3>
+                <h1 *ngIf="!data">
+                  <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+                </h1>
+								<h1 *ngIf="data">{{ data.servicesComplet }}</h1>
+							</ion-label>
+						</div>
+					</div>
+				</ion-item>
+      </ng-template>
+      <ng-template swiperSlide>
+				<ion-item lines="none">
+					<div class="main-slider">
+						<p>Deslice para ver el siguiente apartado.</p>
+						<div class="avatar-container">
+							<ion-avatar slot="start">
+								<ion-icon name="git-pull-request-outline"></ion-icon>
+							</ion-avatar>
+							<ion-label>
+								<h3>clients visitados</h3>
+                <h1 *ngIf="!data">
+                  <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+                </h1>
+                <h1 *ngIf="data">{{ data.servicesComplet }}</h1>
+							</ion-label>
+						</div>
+					</div>
+				</ion-item>
+      </ng-template>
+    </swiper>
+  </ion-list>
+
+  <ion-list class="wraps_work_process" *ngIf="data && data.inProcess != ''">
+
+    <div class="wrap_title">
+      <h4>Tarea en proceso</h4>
+    </div>
+
+    <div class="wrap_process_work">
+
+      <img src="assets/circular.png" alt="">
+
+      <div class="wrap_info_">
+        <h4>{{ data.inProcess.client.name }}</h4>
+        <p>{{ data.inProcess.subClient.razon_social }}</p>
+      </div>
+    </div>
+
+  </ion-list>
+
+  <ion-list class="wraps_tarjets">
+
+    <ion-card>
+      <ion-item lines="none">
+        <ion-label>
+          <h3>Control de actividad</h3>
+          <p>Visitas realizadas en el mes</p>
+
+          <ion-icon name="folder-outline"></ion-icon>
+        </ion-label> 
+
+      </ion-item>
+    
+      <ion-progress-bar *ngIf="data" value="{{ data.servicexMonth }}" color="primary"></ion-progress-bar>
+    </ion-card>
+
+    <ion-card>
+      <ion-item lines="none">
+        <ion-label>
+          <h3>Progreso Mensual</h3>
+          <p> Progesión a la metaa</p>
+
+          <ion-icon name="people-outline"></ion-icon>
+        </ion-label> 
+      </ion-item>
+      
+      <ion-progress-bar *ngIf="data" value="{{ data.metasxMonth }}" color="primary"></ion-progress-bar>
+    </ion-card>
+
+  </ion-list>
+
+
+</ion-content>

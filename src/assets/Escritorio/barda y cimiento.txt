@@ -1,0 +1,106 @@
+ 
+barda completa
+
+Ferretera 5 de mayo
+
+Castillo $291
+Cemento  $195
+Arena	 $800
+Block    $10
+
+Mano de obra
+
+Zapata	$200 Metro Lineal
+Block	$8.00 
+Dala y Castillos $120
+
+
+/**********************************/
+
+Castillo 	x60	= $17,460
+Cemento		x60	= $11,520
+Mortero		x20	= $3,900
+Block		x2800	= $25,200
+Arena		x2	= $1,600
+Varilla		x10(3/8) = $800
+Alambre			= $1,000
+
+
+Total de material	= $62,000
+Mano de obra		
+Cimentacion		= $24,000
+Dalas y castillos	= $18,000
+Pegason de block	= $28,000
+
+Total de manos de obra	= $70,000
+
+Porton y detalles	= $20,000
+
+Total			= $150,000
+
+/*********** Cimiento para casa ***************/
+
+Castillos	x40	= $11,640
+Cemento		x30	= $6,390
+Arena		x2	= $1,600
+Block		x440	= $4,400
+
+Mano de obra
+Cimentacion		= $18,000
+Dalas y Castillos	= $13,500
+
+Extra no contemplado	= $15,000
+Total 			= $55,000
+
+Total + Extras		= $70,000
+
+/********** para levantar las paredes ************/
+
+7 M 	= 17.5 Block 	= 175 block - 10	= 165 blocks
+12 M 	= 30   Block 	= 300 block - 127.5	= 172.5 block
+5 M 	= 12.5 Block 	= 125 block - 55	= 70 block
+9 M 	= 22.5 Block 	= 225 block - 87.5	= 137.5 block
+1 M 	= 2.5  Block 	= 25  block - 0		= 25 block
+2 M 	= 5    Block 	= 50  block - 12.5 	= 37.5 block
+6 M 	= 15   Block 	= 150 block - 0		= 150 block
+8 M 	= 20   Block 	= 200 block - 18.75	= 181.25 block
+.70 M 	= 1.75 Block 	= 17.5 block - 0	= 17.5 block
+13 M 	= 32.5 Block 	= 325 block  - 54	= 271 block
+12.5 M	= 31.25 Block	= 312.5 block - 25.5	= 287 block
+.70 M 	= 1.75 Block	= 17.5 block - 0	= 17.5 block
+3 M 	= 7.5 Block	= 75 block - 37.5	= 37.5 block
+.70 M 	= 1.75 Block	= 17.5 block - 0 	= 17.5 block
+1 M 	= 2.5  Block 	= 25  block - 0		= 25 block
+.70 M 	= 1.75 Block	= 17.5 block - 0	= 17.5 block
+2 M 	= 5    Block 	= 50  block - 15	= 35 block
+1 M 	= 2.5  Block 	= 25  block		= 25 block
+3 M 	= 7.5 Block	= 75 block		= 75 block
+
+88.3 ML   220 BL	  2,207.5 blockes	  1,765 Blocks con ventanas		
+
+-------------------------------------------------------------------------------
+Blocks		x1,765  = $17,650
+Arena		x2	= $1,600
+Mortero		x30	= $5,850
+Cemento		x60	= $12,780 
+Mano de obra		= $17,650
+
+Total			= $55,500
+
+
+
+ 
+concreto
+
+6361038297
+
+Diego salcido.
+
+100 con fibra - el m3 $1,650
+150 con fibra - el m3 $1,950
+200 con fibra - el m3 $2,150
+ 
+por bombeo    - el m3 $500
+ 
+ 
+Parque extremo en contra esquina.

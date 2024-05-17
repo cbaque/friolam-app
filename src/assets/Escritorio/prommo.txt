@@ -1,0 +1,4 @@
+Lista de pendientes
+-hacer funcional el cashback
+-subir los menus con un excel 
+-programa de lealtad
