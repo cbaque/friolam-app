@@ -124,7 +124,6 @@ export class JobPage implements OnInit {
 	
 		modal.onDidDismiss().then(data=>{
 		  if (data.role === 'add_machine') {
-			console.log(data.data);
 			this.arrayListPushMachines.push(data.data);
 		  }
 		});
@@ -193,7 +192,6 @@ export class JobPage implements OnInit {
 		});
 
 		modal.onDidDismiss().then((data: any)=>{
-			console.log(data);
 			if (data !== null) {
 				this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 				this.signatureString = data;

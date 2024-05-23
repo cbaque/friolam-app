@@ -97,8 +97,9 @@ export class MachinesPage implements OnInit {
   arrayListPushMaintenceOne: Array<any> = [];
   arrayListPushMaintenceTwo: Array<any> = [];
   arraypostmix: Array<any> = [];
+  isInitialLoad: boolean = true;
   constructor(
-		public formBuilder: FormBuilder,
+	public formBuilder: FormBuilder,
     public modalController: ModalController,
     public loadingController: LoadingController,
   ) {
@@ -108,8 +109,8 @@ export class MachinesPage implements OnInit {
       model: new FormControl ('',Validators.compose([Validators.minLength(3), Validators.maxLength(35)])),
       serie: new FormControl ('',Validators.compose([Validators.required,Validators.minLength(3), Validators.maxLength(35)])),
       acivo: new FormControl ('',Validators.compose([Validators.required,Validators.minLength(3), Validators.maxLength(35)])),
-      fixDetail: new FormControl ('',Validators.compose([Validators.minLength(3), Validators.maxLength(150)])),
-      problemDescription: new FormControl ('',Validators.compose([Validators.minLength(3), Validators.maxLength(150)])),
+      fixDetail: new FormControl ('',Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(150)])),
+      problemDescription: new FormControl ('',Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(150)])),
       nameSupervisor: new FormControl ('',Validators.compose([Validators.minLength(3), Validators.maxLength(35)])),
 	  id : new FormControl(),
     });
@@ -131,6 +132,7 @@ export class MachinesPage implements OnInit {
 		const foundItem = this.data.maintanceListOne.find(item => item.codeString === this.maintanceOne[i].codeString);
 		if (foundItem) {
 			this.maintanceOne[i].isChecked = foundItem.isChecked;
+			this.arrayListPushMaintenceOne.push(this.maintanceOne[i]);
 		}
 	}
   }
@@ -140,25 +142,44 @@ export class MachinesPage implements OnInit {
 		const foundItem = this.data.maitanceListTwo.find(item => item.codeString === this.maintanceTwo[i].codeString);
 		if (foundItem) {
 			this.maintanceTwo[i].isChecked = foundItem.isChecked;
+			this.arrayListPushMaintenceTwo.push(this.maintanceTwo[i]);
+		}
+	}
+  }
+
+  setValuesPostMix() {
+	
+	for (let i = 0; i < this.postMix.length; i++) {
+		const foundItem = this.data.postMix.find(item => item.codeString === this.postMix[i].codeString );
+		if (foundItem) {
+			
+			this.postMix[i].isChecked = true;
+			this.arraypostmix.push(this.postMix[i]);
 		}
 	}
   }
 
   ngOnInit() {
+	  this.arrayListPushMaintenceOne = [];
+	  this.arrayListPushMaintenceTwo = [];
+	  this.arraypostmix = [];
 	if (this.data) {
 		this.setValuesForm();
 		this.setValuesMaintanceOne();
 		this.setValuesMaintanceTwo();
+		this.setValuesPostMix();
 	}
   }
-
+  ionViewDidEnter() {
+    this.isInitialLoad = false;
+  }
 
   onChange(item, event) {
+	if (this.isInitialLoad) return;
+
 		if (event.detail.checked) {
-		  // Si el checkbox está seleccionado, añade el elemento a la lista
 		  this.arrayListPushMaintenceOne.push(item);
 		} else {
-		  // Si el checkbox no está seleccionado, elimina el elemento de la lista
 		  const index = this.arrayListPushMaintenceOne.findIndex(i => i.codeString === item.codeString);
 		  if (index > -1) {
 			this.arrayListPushMaintenceOne.splice(index, 1);
@@ -167,6 +188,9 @@ export class MachinesPage implements OnInit {
 	}
 	  
 	onChange2(item, event) {
+
+		if (this.isInitialLoad) return;
+
 		if (event.detail.checked) {
 		  // Si el checkbox está seleccionado, añade el elemento a la lista
 		  this.arrayListPushMaintenceTwo.push(item);
@@ -181,6 +205,9 @@ export class MachinesPage implements OnInit {
 
 
 	onChangePostMix(item, event) {
+
+		if (this.isInitialLoad) return;
+
 		if (event.detail.checked) {
 		  this.arraypostmix.push(item);
 		} else {
@@ -191,8 +218,7 @@ export class MachinesPage implements OnInit {
 		}
 	}
 
-  addMachine()
-  {
+  addMachine() {
 
     const dataSend = { 
       name_machine : this.authForm.value.name_machine,
@@ -201,14 +227,11 @@ export class MachinesPage implements OnInit {
       acivo: this.authForm.value.acivo,
       problemDescription: this.authForm.value.problemDescription,
       fixDetail: this.authForm.value.fixDetail,
-      postmix: this.arraypostmix,
+      postMix: this.arraypostmix,
       maintanceListOne: this.arrayListPushMaintenceOne,
       maitanceListTwo: this.arrayListPushMaintenceTwo,
 	  id: this.authForm.value.id
 	};
-	console.log( this.arraypostmix );
-	return false;
-
     this.modalController.dismiss(dataSend,'add_machine');
   }
 

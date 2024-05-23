@@ -42,7 +42,7 @@ export class EditJobComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.data)
+    
     this.createForm();
     this.addPushMachine();
   }
@@ -138,7 +138,6 @@ export class EditJobComponent implements OnInit {
 	
 		modal.onDidDismiss().then(data=>{
 		  if (data.role === 'add_machine') {
-			console.log(data.data);
 			this.arrayListPushMachines.push(data.data);
 		  }
 		});
@@ -147,30 +146,27 @@ export class EditJobComponent implements OnInit {
   }
 
   async editMantenimiento(data) {
-    console.log('mantenimiento', data)
     const modal = await this.modalController.create({
-		  component: MachinesPage,
-      componentProps: { data } ,
-		  animated:true,
-		  backdropDismiss:true,
-		  mode:'md'
-		});
+		component: MachinesPage,
+		componentProps: { data } ,
+		animated:true,
+		backdropDismiss:true,
+		mode:'md'
+	});
 	
-		modal.onDidDismiss().then(data=>{
-		  if (data.role === 'add_machine') {
-        console.log(data.data)
+	modal.onDidDismiss().then(data=> {
+		if (data.role === 'add_machine') {
+			const index = this.arrayListPushMachines.findIndex(item => item.id === data.data.id);
 
-        const index = this.arrayListPushMachines.findIndex(item => item.id === data.data.id);
-        if (index !== -1) {
-          this.arrayListPushMachines.splice(index, 1, data.data);
-        } else {
-            this.arrayListPushMachines.push(data.data);
-        }
-
-		  }
-		});
+			if (index !== -1) {
+				this.arrayListPushMachines.splice(index, 1, data.data);
+			} else {
+				this.arrayListPushMachines.push(data.data);
+			}
+		}
+	});
 	
-		return await modal.present();
+	return await modal.present();
   }
 
   async signature() {
@@ -182,7 +178,6 @@ export class EditJobComponent implements OnInit {
 		});
 
 		modal.onDidDismiss().then((data: any)=>{
-			console.log(data);
 			if (data !== null) {
 				this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 				this.signatureString = data;

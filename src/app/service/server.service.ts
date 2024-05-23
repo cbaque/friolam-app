@@ -258,7 +258,7 @@ export class ServerService {
 
   EditService(data, id)
   {
-    return this.http.post(this.url+'EditService/'+id,data)
+    return this.http.put(this.url+'EditService/'+id,data)
     .pipe(map(results => results));
   }
 

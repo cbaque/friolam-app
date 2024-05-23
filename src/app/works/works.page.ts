@@ -48,7 +48,7 @@ export class WorksPage implements OnInit, OnDestroy {
   ionViewWillEnter()
   {
     this.platform.ready().then(() => {
-			this.loadData();
+			// this.loadData();
       // this.chkServiceTimer = interval(1500).subscribe(() => {
         this.loadData();
       // });
@@ -205,6 +205,12 @@ export class WorksPage implements OnInit, OnDestroy {
       animated:true,
       backdropDismiss:true,
     });
+
+    modal.onDidDismiss().then(data=>{
+		  if (data.role === 'change_service') {
+        this.loadData();
+		  }
+		});
 
     return await modal.present();
   }
